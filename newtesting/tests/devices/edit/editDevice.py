@@ -7,21 +7,23 @@ import resthelper
 def setup():
    resthelper.resthelperFunc1()
 
+# Put your deconstruction in here
+def destroy():
+    pass
+
 # Put the test itself in here
-def runTest():
-    print("running tests")
-
-
-
-
-
-
-
-
-
+def test():
+    print("running test edit")
 
 
 
 if __name__ == "__main__":
     setup()
     runTest()
+
+#helper function for the run.py
+def runTest():
+    setup()
+    test()
+    destroy()
+
