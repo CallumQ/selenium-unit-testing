@@ -1,19 +1,21 @@
 import pytest
 import sys
-
-
+import run
+from helpers import rest_helper as restHelper
+from selenium import webdriver
 class TestCreateAccount:
     @pytest.fixture
     def setup_and_destroy(self):
         # setup code
-        self.itemList = [1,2,3]
-
+        self.driver = webdriver.Chrome(r"C:\Users\Callum\Downloads\chromedriver.exe")
+        restHelper.create_person()
+        self.driver.get("https://google.co.uk")
         # destroy code
         yield
         self.itemList = None
-
+        self.driver.quit()
     def test_account(self, setup_and_destroy):
-        assert self.itemList == [1,2,3]
+        assert self.driver.title == "Google"
 
 
 if __name__ == '__main__':
